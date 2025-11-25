@@ -82,33 +82,45 @@
         </div>
     </nav>
 
-    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img id="hero-img" 
-                src="images/hero.jpg" 
-                class="w-full h-full object-cover will-change-transform transition-transform duration-75 ease-linear" 
-                alt="Hero Background" 
-                onerror="this.src='https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'">
-            
-            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
-        </div>
+    <section id="home" class="relative min-h-screen flex items-center bg-brand-dark overflow-hidden pt-20 md:pt-0">
+        <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-brand-gold/20 rounded-full filter blur-[120px] animate-pulse"></div>
 
-        <div id="hero-text" class="relative z-10 text-center px-4 max-w-4xl mx-auto reveal will-change-transform">
-            <span class="block text-brand-gold font-semibold tracking-widest uppercase mb-4">Quality & Elegance</span>
-            <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-6 leading-tight">
-                Taste the Difference,<br>Smell the Luxury.
-            </h1>
-            <p class="text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-light">
-                From gourmet catering and custom cakes to signature fragrances. Thilten Enterprises brings sophistication to your doorstep.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#offerings" class="px-8 py-4 bg-brand-gold text-white font-bold rounded-lg hover:bg-yellow-600 transition shadow-lg">
-                    View Our Menu
-                </a>
-                <a href="#contact" class="px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-lg hover:bg-white hover:text-black transition">
-                    Book Now
-                </a>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid lg:grid-cols-2 gap-16 items-center z-10">
+            
+            <div id="hero-text" class="text-left reveal will-change-transform order-2 lg:order-1">
+                <span class="inline-block py-1 px-3 mb-6 text-sm font-bold tracking-widest uppercase rounded-full bg-brand-gold/20 text-brand-gold">
+                    Premium Culinary Services
+                </span>
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-8 leading-tight">
+                    Experience the <br> <span class="text-brand-gold">Art of Flavor.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-300 mb-12 max-w-lg font-light leading-relaxed">
+                    Indulge in exquisite catering, bespoke cakes, and signature fragrances. We craft unforgettable sensory experiences for your most cherished moments.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6">
+                    <a href="#offerings" class="px-8 py-4 bg-brand-gold text-white font-bold rounded-full hover:bg-yellow-600 transition shadow-lg shadow-brand-gold/30 text-center">
+                        Explore Our Menu
+                    </a>
+                    <a href="#contact" class="px-8 py-4 bg-transparent border-2 border-white/30 text-white font-bold rounded-full hover:bg-white hover:text-brand-dark transition flex items-center justify-center gap-3 group">
+                        <span>Book Now</span>
+                        <svg class="w-5 h-5 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
             </div>
+
+            <div class="relative order-1 lg:order-2 h-[500px] lg:h-[700px] w-full reveal delay-200">
+                 <div class="w-full h-full rounded-3xl overflow-hidden shadow-2xl shadow-brand-gold/20 relative z-10">
+                     <img id="hero-img" 
+                         src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=1349&q=80" 
+                         class="w-full h-full object-cover will-change-transform transition-transform duration-1000 ease-out scale-110" 
+                         alt="Gourmet Dark Food Spread"
+                         onerror="this.src='images/hero.jpg'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/60 via-transparent to-transparent"></div>
+                </div>
+                <div class="absolute -bottom-6 -right-6 w-full h-full border-2 border-brand-gold/50 rounded-3xl -z-0"></div>
+            </div>
+
         </div>
     </section>
     <section id="about" class="py-24 bg-gray-50">
@@ -131,8 +143,7 @@
                           alt="Cologne Collection">
                       <img src="images/last.jpg" 
                           class="slide absolute inset-0 w-full h-full object-cover transition-all duration-[2000ms] ease-in-out opacity-0 scale-100" 
-                          alt="food">
-                          
+                          alt="food">   
                   </div>
                 </div>
                 <div class="w-full md:w-1/2 reveal">
@@ -144,22 +155,26 @@
                     <p class="text-gray-600 text-lg leading-relaxed mb-8">
                         We believe that every meal should be a memory and every scent should tell a story. Our team is dedicated to sourcing the finest ingredients and crafting products with love and precision.
                     </p>
-                    
-                    <div class="flex gap-8">
-                        <div>
-                            <span class="block text-3xl font-bold text-brand-gold">5+</span>
-                            <span class="text-sm text-gray-500 uppercase tracking-wider">Years Exp.</span>
-                        </div>
-                        <div>
-                            <span class="block text-3xl font-bold text-brand-gold">500+</span>
-                            <span class="text-sm text-gray-500 uppercase tracking-wider">Happy Clients</span>
-                        </div>
-                    </div>
                 </div>
-
             </div>
         </div>
     </section>
+    <section class="py-24 bg-black overflow-hidde">
+                        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                            <div class="reveal">
+                                <div class="text-brand-gold text-5xl font-sans-serif font-bold mb-2">5+</div>
+                                <div class="text-gray-300 uppercase tracking-wider font-medium">Years of Excellence</div>
+                            </div>
+                            <div class="reveal delay-100">
+                                <div class="text-brand-gold text-5xl font-sans-serif font-bold mb-2">500+</div>
+                                <div class="text-gray-300 uppercase tracking-wider font-medium">Happy Clients</div>
+                            </div>
+                            <div class="reveal delay-200">
+                                <div class="text-brand-gold text-5xl font-sans-serif font-bold mb-2">100%</div>
+                                <div class="text-gray-300 uppercase tracking-wider font-medium">Quality Guarantee</div>
+                            </div>
+                        </div>
+                    </section>
     <section id="offerings" class="py-24 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal">
