@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Thilten Enterprises | Catering & Luxury</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            gold: '#D4AF37',   /* Elegant Gold */
+                            dark: '#1a1a1a',   /* Soft Black */
+                            accent: '#e74c3c', /* Your Original Red (used sparingly) */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base State: Hidden and pushed down */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.5, 0, 0, 1); /* Very smooth 'Cubic Bezier' curve */
+        }
+
+        /* Active State: Visible and in place */
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* DELAYS: This is the secret sauce for the "Staggered" effect */
+        .delay-100 { transition-delay: 100ms; } /* Waits 0.1s */
+        .delay-200 { transition-delay: 200ms; } /* Waits 0.2s */
+        .delay-300 { transition-delay: 300ms; } /* Waits 0.3s */
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <img class="h-12 w-12 rounded-full object-cover border-2 border-brand-gold" src="images/logo.JPG" alt="Thilten Logo" onerror="this.src='https://via.placeholder.com/60'">
+                    <span class="font-serif text-2xl font-bold text-gray-900 tracking-wide">Thilten Enterprises</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="text-gray-600 hover:text-brand-accent font-medium transition">Home</a>
+                    <a href="#about" class="text-gray-600 hover:text-brand-accent font-medium transition">About</a>
+                    <a href="#offerings" class="text-gray-600 hover:text-brand-accent font-medium transition">Services</a>
+                    <a href="#contact" class="px-5 py-2.5 bg-brand-dark text-white font-medium rounded-full hover:bg-brand-accent transition shadow-lg transform hover:-translate-y-0.5">Contact Us</a>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-dark focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-accent hover:bg-gray-50 rounded-md">Home</a>
+                <a href="#offerings" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-accent hover:bg-gray-50 rounded-md">Our Services</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-bold text-brand-accent hover:bg-gray-50 rounded-md">Get in Touch</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img id="hero-img" 
+                src="images/hero.jpg" 
+                class="w-full h-full object-cover will-change-transform transition-transform duration-75 ease-linear" 
+                alt="Hero Background" 
+                onerror="this.src='https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'">
+            
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
+        </div>
+
+        <div id="hero-text" class="relative z-10 text-center px-4 max-w-4xl mx-auto reveal will-change-transform">
+            <span class="block text-brand-gold font-semibold tracking-widest uppercase mb-4">Quality & Elegance</span>
+            <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-6 leading-tight">
+                Taste the Difference,<br>Smell the Luxury.
+            </h1>
+            <p class="text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-light">
+                From gourmet catering and custom cakes to signature fragrances. Thilten Enterprises brings sophistication to your doorstep.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#offerings" class="px-8 py-4 bg-brand-gold text-white font-bold rounded-lg hover:bg-yellow-600 transition shadow-lg">
+                    View Our Menu
+                </a>
+                <a href="#contact" class="px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-lg hover:bg-white hover:text-black transition">
+                    Book Now
+                </a>
+            </div>
+        </div>
+    </section>
+    <section id="about" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                
+                <div class="w-full md:w-1/2 reveal">
+                  <div class="relative h-[400px] w-full rounded-lg shadow-2xl overflow-hidden bg-gray-100">
+                      
+                      <img src="images/Ai.png" 
+                          class="slide absolute inset-0 w-full h-full object-cover transition-all duration-[2000ms] ease-in-out opacity-100 scale-110" 
+                          alt="African Cuisine">
+                          
+                      <img src="images/muffins.jpg" 
+                          class="slide absolute inset-0 w-full h-full object-cover transition-all duration-[2000ms] ease-in-out opacity-0 scale-100" 
+                          alt="Custom Cake">
+                          
+                      <img src="images/perfume-2.JPG" 
+                          class="slide absolute inset-0 w-full h-full object-cover transition-all duration-[2000ms] ease-in-out opacity-0 scale-100" 
+                          alt="Cologne Collection">
+                      <img src="images/last.jpg" 
+                          class="slide absolute inset-0 w-full h-full object-cover transition-all duration-[2000ms] ease-in-out opacity-0 scale-100" 
+                          alt="food">
+                          
+                  </div>
+                </div>
+                <div class="w-full md:w-1/2 reveal">
+                    <h2 class="text-brand-accent font-bold tracking-wide uppercase text-sm mb-2">Our Story</h2>
+                    <h3 class="text-4xl font-serif font-bold text-gray-900 mb-6">Passion on a Plate, <br>Elegance in a Bottle.</h3>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                        Thilten Enterprises started with a simple mission: to bring joy to people through their senses. What began as a small family kitchen has grown into a premier provider of culinary delights and signature scents in Limpopo.
+                    </p>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                        We believe that every meal should be a memory and every scent should tell a story. Our team is dedicated to sourcing the finest ingredients and crafting products with love and precision.
+                    </p>
+                    
+                    <div class="flex gap-8">
+                        <div>
+                            <span class="block text-3xl font-bold text-brand-gold">5+</span>
+                            <span class="text-sm text-gray-500 uppercase tracking-wider">Years Exp.</span>
+                        </div>
+                        <div>
+                            <span class="block text-3xl font-bold text-brand-gold">500+</span>
+                            <span class="text-sm text-gray-500 uppercase tracking-wider">Happy Clients</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section id="offerings" class="py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-brand-accent font-bold tracking-wide uppercase text-sm mb-2">What We Do</h2>
+                <h3 class="text-4xl md:text-5xl font-serif font-bold text-brand-dark">Our Premium Services</h3>
+                <div class="w-24 h-1 bg-brand-gold mx-auto mt-6"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center gap-12 mb-24 reveal">
+                <div class="w-full md:w-1/2 reveal"> 
+                  <div class="relative rounded-2xl overflow-hidden shadow-2xl group">
+                      <img src="images/chicken.JPG" ... >
+                  </div>
+                </div>
+    
+                <div class="w-full md:w-1/2 md:pl-10 reveal delay-200">
+                    <h4 class="text-3xl font-serif font-bold text-gray-900 mb-4">Gourmet Catering</h4>
+                    <p class="text-gray-600 leading-relaxed mb-6 text-lg">
+                        Whether it's a corporate luncheon, a traditional wedding, or a private party, our catering service delivers flavor and style. We specialize in hearty, delicious meals prepared with fresh local ingredients.
+                    </p>
+                    <ul class="space-y-2 mb-8 text-gray-700">
+                        <li class="flex items-center">
+                            <span class="text-brand-gold mr-2">✓</span> Buffet & Plated Options
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-brand-gold mr-2">✓</span> Traditional & Modern Cuisine
+                        </li>
+                    </ul>
+                    <a href="#contact" class="text-brand-accent font-semibold hover:text-brand-dark transition flex items-center">
+                        Request a Quote <span class="ml-2">→</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row-reverse items-center gap-12 mb-24 reveal">
+                <div class="w-full md:w-1/2">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl group">
+                        <img src="images/cakes.jpg" alt="Cakes" class="w-full h-[400px] object-cover transform group-hover:scale-105 transition duration-700" onerror="this.src='https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'">
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 md:pr-10">
+                    <h4 class="text-3xl font-serif font-bold text-gray-900 mb-4">Custom Cake Creations</h4>
+                    <p class="text-gray-600 leading-relaxed mb-6 text-lg">
+                        Celebrate life's sweetest moments with our bespoke cakes. From birthdays to weddings, we design edible art that tastes as incredible as it looks.
+                    </p>
+                    <ul class="space-y-2 mb-8 text-gray-700">
+                        <li class="flex items-center">
+                            <span class="text-brand-gold mr-2">✓</span> Custom Designs & Toppers
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-brand-gold mr-2">✓</span> Wide Variety of Flavors
+                        </li>
+                    </ul>
+                    <a href="#contact" class="text-brand-accent font-semibold hover:text-brand-dark transition flex items-center">
+                        Order a Cake <span class="ml-2">→</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center gap-12 reveal">
+                <div class="w-full md:w-1/2">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl group">
+                        <img src="images/perfume-1.JPG" alt="Fragrances" class="w-full h-[400px] object-cover transform group-hover:scale-105 transition duration-700" onerror="this.src='https://images.unsplash.com/photo-1595535373192-fc0935528999?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'">
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 md:pl-10">
+                    <h4 class="text-3xl font-serif font-bold text-gray-900 mb-4">Signature Fragrances</h4>
+                    <p class="text-gray-600 leading-relaxed mb-6 text-lg">
+                        Leave a lasting impression with our curated collection of fragrances. We offer high-quality scents that define elegance and sophistication.
+                    </p>
+                    <a href="#contact" class="text-brand-accent font-semibold hover:text-brand-dark transition flex items-center">
+                        View Collection <span class="ml-2">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-brand-dark py-16 text-white">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center reveal">
+            <div class="p-4">
+                <div class="text-brand-gold text-4xl mb-2">100%</div>
+                <div class="text-lg font-serif">Fresh Ingredients</div>
+            </div>
+            <div class="p-4 border-l-0 md:border-l border-r-0 md:border-r border-gray-700">
+                <div class="text-brand-gold text-4xl mb-2">Local</div>
+                <div class="text-lg font-serif">Proudly South African</div>
+            </div>
+            <div class="p-4">
+                <div class="text-brand-gold text-4xl mb-2">5 Star</div>
+                <div class="text-lg font-serif">Customer Service</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row reveal">
+                
+                <div class="bg-brand-dark text-white p-12 md:w-2/5 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-3xl font-serif font-bold mb-6">Get In Touch</h3>
+                        <p class="text-gray-400 mb-8">Ready to plan your event or order a product? Fill out the form or contact us directly.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <span class="text-brand-gold text-xl">📍</span>
+                                <div>
+                                    <h5 class="font-bold">Visit Us</h5>
+                                    <p class="text-gray-400 text-sm">87 Kameel Street, Louis Trichardt</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <span class="text-brand-gold text-xl">📞</span>
+                                <div>
+                                    <h5 class="font-bold">Call Us</h5>
+                                    <p class="text-gray-400 text-sm">+27 78 950 6839</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <span class="text-brand-gold text-xl">📧</span>
+                                <div>
+                                    <h5 class="font-bold">Email Us</h5>
+                                    <p class="text-gray-400 text-sm">narethendo@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12">
+                        <p class="text-sm text-gray-500">© 2025 Thilten Enterprises</p>
+                    </div>
+                </div>
+
+                <div class="p-12 md:w-3/5">
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 rounded-lg bg-gray-50 border-transparent focus:border-brand-gold focus:bg-white focus:ring-0 transition" placeholder="John Doe" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-3 rounded-lg bg-gray-50 border-transparent focus:border-brand-gold focus:bg-white focus:ring-0 transition" placeholder="+27...">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg bg-gray-50 border-transparent focus:border-brand-gold focus:bg-white focus:ring-0 transition" placeholder="john@example.com">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-lg bg-gray-50 border-transparent focus:border-brand-gold focus:bg-white focus:ring-0 transition" placeholder="I would like to order..." required></textarea>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                            <button type="button" id="whatsappBtn" class="flex-1 bg-green-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-600 transition flex justify-center items-center gap-2">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.466c-.74-.37-4.313-2.13-4.874-2.372-.562-.244-.97-.366-1.381.244-.408.61-1.586 1.996-1.943 2.408-.358.412-.714.459-1.455.088-2.673-1.339-4.384-2.887-5.836-5.409-.38-.66-.041-1.017.329-1.387.333-.332.74-.866 1.11-1.299.37-.433.493-.732.74-.1.229.248.1.479 1.646-2.584.512-.876.329-1.53-.178-2.126-.403-.474-1.264-1.474-2.109-1.474-.875 0-1.222.183-1.894.869-1.077 1.1-2.083 3.616.598 6.643 3.328 3.758 5.795 4.966 9.388 5.474 2.185.309 3.456-.162 4.415-.894 1.059-.808 2.053-2.33 2.053-3.791.001-1.127-.616-1.993-1.247-2.308z"/></svg>
+                                WhatsApp
+                            </button>
+                            <button type="submit" class="flex-1 bg-brand-dark text-white font-bold py-3 px-6 rounded-lg hover:bg-black transition">
+                                Send Email
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-brand-dark text-white border-t border-gray-800 font-sans relative">
+    
+    <div class="absolute -top-6 left-1/2 transform -translate-x-1/2">
+        <a href="#home" class="bg-brand-gold text-white p-3 rounded-full shadow-lg hover:bg-yellow-600 transition duration-300 flex items-center justify-center w-12 h-12">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+        </a>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            
+            <div class="reveal">
+                <div class="flex items-center gap-3 mb-6">
+                    <img src="images/logo.JPG" alt="Logo" class="w-10 h-10 rounded-full border border-brand-gold object-cover">
+                    <span class="text-2xl font-serif font-bold tracking-wide">Thilten</span>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    Elevating events with gourmet catering, custom cakes, and signature fragrances. Proudly serving Limpopo with elegance and style.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-brand-gold transition"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+                    <a href="#" class="text-gray-400 hover:text-brand-gold transition"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                </div>
+            </div>
+
+            <div class="reveal delay-100">
+                <h4 class="text-white font-serif text-lg font-bold mb-6">Explore</h4>
+                <ul class="space-y-3 text-sm text-gray-400">
+                    <li><a href="#home" class="hover:text-brand-gold transition duration-300">Home</a></li>
+                    <li><a href="#about" class="hover:text-brand-gold transition duration-300">About Us</a></li>
+                    <li><a href="#offerings" class="hover:text-brand-gold transition duration-300">Services</a></li>
+                    <li><a href="#contact" class="hover:text-brand-gold transition duration-300">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="reveal delay-200">
+                <h4 class="text-white font-serif text-lg font-bold mb-6">Our Services</h4>
+                <ul class="space-y-3 text-sm text-gray-400">
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-brand-gold rounded-full"></span> Wedding Catering</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-brand-gold rounded-full"></span> Corporate Events</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-brand-gold rounded-full"></span> Birthday Cakes</li>
+                    <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-brand-gold rounded-full"></span> Luxury Perfumes</li>
+                </ul>
+            </div>
+
+            <div class="reveal delay-300">
+                <h4 class="text-white font-serif text-lg font-bold mb-6">Contact Us</h4>
+                <ul class="space-y-4 text-sm text-gray-400">
+                    <li class="flex items-start gap-3">
+                        <span class="text-brand-gold mt-1">📍</span>
+                        <span>87 Kameel Street, Louis Trichardt,<br>Limpopo, South Africa</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="text-brand-gold">📞</span>
+                        <a href="tel:+27789506839" class="hover:text-white transition">+27 78 950 6839</a>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <span class="text-brand-gold">📧</span>
+                        <a href="mailto:thilten@example.com" class="hover:text-white transition">narethendo@gmail.com</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="border-t border-gray-800 bg-black/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-xs text-gray-500 text-center md:text-left">
+                &copy; 2025 Thilten Enterprises. All Rights Reserved.
+            </p>
+            <div class="flex gap-6 text-xs text-gray-500">
+                <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        // 1. Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        // --- 1.1 Auto-Close Mobile Menu on Selection ---
+      // Select all links (<a> tags) inside the mobile menu
+      const mobileLinks = document.querySelectorAll('#mobile-menu a');
+      
+      // Loop through each link and add a listener
+      mobileLinks.forEach(link => {
+          link.addEventListener('click', () => {
+              // When a link is clicked, add the 'hidden' class back to the menu
+              document.getElementById('mobile-menu').classList.add('hidden');
+          });
+      });
+        // 2. Scroll Animation (The "Reveal" effect)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+        // 3. Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white/95', 'shadow-sm');
+                nav.classList.remove('bg-transparent');
+            } else {
+                // Keep it white/90 even at top for readability on this design, 
+                // or remove this else block to make it transparent at top.
+            }
+        });
+
+        // 4. WhatsApp Logic
+        document.getElementById('whatsappBtn').addEventListener('click', function () {
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+            
+            if(!name || !message) { alert('Please enter your Name and Message'); return; }
+
+            const phone = "27789506839"; // Your Number from the contact info
+            const text = `Hi, I am ${name}. ${message}`;
+            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank');
+        });
+
+        // 5. Email Logic
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+            window.location.href = `mailto:thilten@example.com?subject=Inquiry from ${name}&body=${message}`;
+        });
+        // --- 6. About Section Slideshow Logic (Zoom & Fade) ---
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    setInterval(() => {
+        // 1. Reset current slide (Fade out & Zoom back out)
+        slides[currentSlide].classList.remove('opacity-100', 'scale-110');
+        slides[currentSlide].classList.add('opacity-0', 'scale-100');
+
+        // 2. Calculate next slide index
+        currentSlide = (currentSlide + 1) % slides.length;
+
+        // 3. Activate next slide (Fade in & Zoom in)
+        slides[currentSlide].classList.remove('opacity-0', 'scale-100');
+        slides[currentSlide].classList.add('opacity-100', 'scale-110');
+    }, 3000); // Increased to 4000ms (4s) so the animation has time to finish smoothly
+    // --- 7. Hero Scroll Animation (Parallax Zoom & Fade) ---
+    window.addEventListener('scroll', () => {
+        const heroImg = document.getElementById('hero-img');
+        const heroText = document.getElementById('hero-text');
+        const scrollPosition = window.scrollY;
+
+        // Only animate if we are near the top of the page (performance)
+        if (scrollPosition < 900) {
+            
+            // 1. Zoom the Image IN slowly as you scroll down
+            // Formula: 1 + (scroll pixels * 0.0005)
+            const scaleValue = 1 + (scrollPosition * 0.0005);
+            heroImg.style.transform = `scale(${scaleValue})`;
+
+            // 2. Move the Text DOWN slowly (Parallax) and Fade it OUT
+            // TranslateY: Move text down by 30% of scroll speed
+            // Opacity: Fade out completely by 700px scroll
+            heroText.style.transform = `translateY(${scrollPosition * 0.3}px)`;
+            heroText.style.opacity = 1 - (scrollPosition / 700);
+        }
+    });
+    </script>
+</body>
+</html>
